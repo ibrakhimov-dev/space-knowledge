@@ -16,7 +16,7 @@ export const themeOptions = createTheme({
     }
   },
   typography: {
-     fontFamily: `Ubuntu, sans-serif`,
-  }
+    fontFamily: 'Open Sans, cursive',
+  },
 });  
 

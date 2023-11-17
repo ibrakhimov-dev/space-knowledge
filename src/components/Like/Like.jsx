@@ -1,19 +1,13 @@
 import { Grid, Stack, Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import academyLogo from '../../Assets/img/academy-logo.png'
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import ModeCommentOutlined from '@mui/icons-material/ModeCommentOutlined';
+import academyLogo from '../Assets/img/academy-logo.png'
 import SendOutlined from '@mui/icons-material/SendOutlined';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from '@mui/icons-material/Favorite';
 // 
 import { useTheme } from '@mui/material/styles';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 
@@ -42,18 +36,9 @@ const images = [
   },
 ];
 
-function University() {
+function Like() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   const handleStepChange = (step) => {
     setActiveStep(step);
@@ -63,7 +48,7 @@ function University() {
       <Grid container>
         <Grid item xl={12} mt={2}>
           <NavLink style={navLinkStyle}>
-            <Typography variant='h6' fontWeight='bold'>University<ArrowOutwardIcon sx={{fontSize: 18}}/></Typography>
+            <Typography variant='h6' fontWeight='bold'>Favorite Announcements</Typography>
           </NavLink>
         </Grid>
       </Grid>
@@ -887,7 +872,7 @@ function University() {
       </Grid>
       <Grid container mt={2}>
         <Grid item xl={12} display='flex' justifyContent='center'>
-            <Button variant='contained' sx={{height: 44, width: 200}}>More +9 University</Button>
+            <Button variant='contained' sx={{height: 44, width: 200}}>More +9 Academy</Button>
         </Grid>
       </Grid>
     </Stack>
@@ -899,4 +884,4 @@ const navLinkStyle = {
   textDecoration: 'none'
 }
 
-export default University
+export default Like;

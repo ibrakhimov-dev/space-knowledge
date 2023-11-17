@@ -9,10 +9,10 @@ function Home() {
   return (
     <>
         <Banner />
-        {/* <Academy />
+        <Academy />
         <University />
         <School />
-        <PreSchool /> */}
+        <PreSchool />
     </>
   )
 }

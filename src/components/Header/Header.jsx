@@ -1,17 +1,139 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Home from '../Home/Home'
 import Footer from '../Footer/Footer'
-import { Outlet } from 'react-router-dom'
-import { Container, Stack } from '@mui/material'
+import Category from '../Category/Category'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { Container, Grid, Stack, Box, SvgIcon, Typography, IconButton, Paper, InputBase, FormControl, FormGroup, Select, MenuItem, Button } from '@mui/material'
+import ContrastIcon from '@mui/icons-material/Contrast';
+import SearchIcon from '@mui/icons-material/Search';
+import LanguageIcon from '@mui/icons-material/Language';
+import logo from "../Assets/img/logo.svg";
+import CategoryIcon from '@mui/icons-material/Category';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 function Header() {
+  const [language, setLanguage] = useState('English');
+  const [isAgreeCategory, setIsAgreeCategory] = useState('none');
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
+  function openCategory () {
+    if(isAgreeCategory === 'none') {
+      setIsAgreeCategory('block');
+    }else {
+      setIsAgreeCategory('none');
+    }
+  }
+
+  function search () {
+    navigate("/search")
+  }
+
+  function signIn () {
+    navigate('/sign-in')
+  }
+
+  function signUp () {
+    navigate('/sign-up')
+  }
+
+  function like () {
+    navigate('like')
+  }
+
   return (
     <Stack>
         <Container>
-            <Home />
+            <Grid container height={55} alignItems='center'>
+              <Grid item xl={2}>
+                <NavLink style={navLinkStyle}><span style={{color: "#BC002D"}}>JDU</span> System</NavLink>
+              </Grid>
+              <Grid item xl={7}>
+                <Typography variant='subtitle2'>Bizning foydalanuvchilarimiz 999999 ga yetdi.</Typography>
+              </Grid>
+              <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+                <NavLink style={navLinkStyle}>Doc</NavLink>
+                <IconButton aria-label="contrast" color='primary'>
+                  <ContrastIcon />
+                </IconButton>
+                <FormControl sx={{minWidth: 150 }} size="small">
+                  <Select
+                    defaultValue='English'
+                    id="demo-select-small"
+                    color='primary'
+                    value={language}
+                    onChange={handleChange}
+                    renderValue={(value) => {
+                      return (
+                        <Box sx={{ display: "flex", gap: 1 }}>
+                          <SvgIcon color="primary">
+                            <LanguageIcon />
+                          </SvgIcon>
+                          {value}
+                        </Box>
+                      );
+                    }}
+                  >
+                    <MenuItem value='English'> English</MenuItem>
+                    <MenuItem value='Russian'>Russian</MenuItem>
+                    <MenuItem value='Uzbek'>Uzbek</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1} height={90} alignItems='center'>
+              <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+                <Link to='home'>
+                    <img src={logo} width={150} alt="Space os Knowledge" />
+                </Link>
+                <Button onClick={openCategory} size='large' sx={{height: 44}} variant="outlined" color='danger' startIcon={<CategoryIcon />}>
+                  Category
+                </Button>
+              </Grid>
+              <Grid item xl={6}>
+              <Paper
+                  component="form"
+                  sx={{display: 'flex', alignItems: 'center', width: '100%' }}
+                >
+                  <InputBase
+                    sx={{ ml: 1, flex: 1 }}
+                    placeholder="Search Academy Name..."
+                  />
+                  <IconButton onClick={search} type="button" sx={{ p: '10px' }} aria-label="search">
+                    <SearchIcon />
+                  </IconButton>
+                </Paper>
+              </Grid>
+              <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+                <Button size='large' onClick={signIn} sx={{height: 44}} variant="contained" color='danger'>
+                  Sign In
+                </Button>
+                <Button size='large' onClick={signUp} sx={{height: 44}} variant="contained" color='primary'>
+                  Sign Up
+                </Button>
+                <IconButton aria-label="contrast" onClick={like} color='danger'>
+                  <FavoriteBorderIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+            <Box sx={{position: 'relative'}}>
+              <Stack bgcolor='white' boxShadow='0 5px 5px #42434681' position='absolute' width="100%" zIndex={33} display={isAgreeCategory}>
+                <Category />
+              </Stack>
+            </Box>
+            <Outlet/>
+            <Footer />
         </Container>
     </Stack>
   )
+}
+
+const navLinkStyle = {
+  color: '#072556',
+  textDecoration: 'none'
 }
 
 export default Header
