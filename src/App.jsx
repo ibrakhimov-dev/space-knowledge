@@ -12,6 +12,12 @@ import Description from './components/Detail/Description';
 import Comment from './components/Detail/Comment';
 import Certificate from './components/Detail/Certificate';
 import LeaveApplication from './components/Detail/LeaveApplication';
+import Sidebar from './components/InstitutionAdmin/Sidebar/Sidebar';
+import Dashboard from './components/InstitutionAdmin/Dashboard/Dashboard';
+import Profile from './components/InstitutionAdmin/Profile/Profile';
+import IncreaseEfficiency from './components/InstitutionAdmin/IncreaseeEfficiency/IncreaseEfficiency';
+import MyAdvertising from './components/InstitutionAdmin/MyAdvertising/MyAdvertising';
+import CreateAdvertising from './components/InstitutionAdmin/CreateAdvertising/CreateAdvertising';
 
 function App() {
   return (
@@ -34,6 +40,14 @@ function App() {
           </Route>
           <Route path='sign-in' element={<SignIn />} />
           <Route path='sign-up' element={<SignUp />} />
+          <Route path='institution-admin' element={<Sidebar />}> 
+            <Route index element={<Dashboard />} />
+            <Route path='dashboard' element={<Dashboard />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='my-advertising' element={<MyAdvertising />} />
+            <Route path='create-Advertising' element={<CreateAdvertising />} />
+            <Route path='inc-efficiency' element={<IncreaseEfficiency />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
