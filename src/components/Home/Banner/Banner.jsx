@@ -1,114 +1,113 @@
+import { Stack, Grid, Typography, Card, CardContent } from '@mui/material'
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import SchoolIcon from '@mui/icons-material/School';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import React from 'react'
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-const images = [
-  {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.uzum.uz/cl91nefn7c6qm23iosng/main_page_banner.jpg',
-  },
-  {
-    label: 'Bird',
-    imgPath:
-      'https://images.uzum.uz/cl70kbdennt861ip5jf0/main_page_banner.jpg',
-  },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.uzum.uz/cl931ktennt861iphq2g/main_page_banner.jpg',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.uzum.uz/cl70kbdennt861ip5jf0/main_page_banner.jpg',
-  },
-];
 
 function Banner() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
-
   return (
-    <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-      <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  display: 'block',
-                  maxWidth: '100%',
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
-      <MobileStepper
-      color='primary'
-      sx={{maxWidth: '100%'}}
-         variant="progress"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            size="small"
-            color='primary'
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
-            {theme.direction === 'rtl' ? (
-              <ArrowCircleLeftIcon />
-            ) : (
-              <ArrowCircleRightIcon />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" color='primary' onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? (
-              <ArrowCircleRightIcon />
-            ) : (
-              <ArrowCircleLeftIcon />
-            )}
-          </Button>
-        }
-      />
-    </Box>
+    <Stack>
+      <Grid container>
+        <Grid item xl={12} mt={2}>
+            <Typography variant='h6' color='primary' fontWeight='bold'>Educational Institution</Typography>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} my={2}>
+        <Grid item xl={3}>
+          <Card
+          variant="outlined"
+          sx={{
+            borderRadius: '5px',
+            height: '100%',
+            position: 'relative',
+            color: "#072556",
+            textAlign: 'center',
+            boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+            '&:hover': {
+              boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+              cursor: 'pointer'
+            },
+          }}>
+            <CardContent>
+              <LocalLibraryIcon sx={{fontSize: '60px'}} color='danger' />
+            </CardContent>
+            <CardContent>
+              <Typography variant='h6'>Training Center</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xl={3}>
+          <Card
+          variant="outlined"
+          sx={{
+            borderRadius: '5px',
+            height: '100%',
+            position: 'relative',
+            color: "#072556",
+            textAlign: 'center',
+            boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+            '&:hover': {
+              boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+              cursor: 'pointer'
+            },
+          }}>
+            <CardContent>
+              <AccountBalanceIcon sx={{fontSize: '60px'}} color='danger' />
+            </CardContent>
+            <CardContent>
+              <Typography variant='h6'>University</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xl={3}>
+          <Card
+          variant="outlined"
+          sx={{
+            borderRadius: '5px',
+            height: '100%',
+            position: 'relative',
+            color: "#072556",
+            textAlign: 'center',
+            boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+            '&:hover': {
+              boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+              cursor: 'pointer'
+            },
+          }}>
+            <CardContent>
+              <SchoolIcon sx={{fontSize: '60px'}} color='danger' />
+            </CardContent>
+            <CardContent>
+              <Typography variant='h6'>School</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xl={3}>
+          <Card
+          variant="outlined"
+          sx={{
+            borderRadius: '5px',
+            height: '100%',
+            position: 'relative',
+            color: "#072556",
+            textAlign: 'center',
+            boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+            '&:hover': {
+              boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+              cursor: 'pointer'
+            },
+          }}>
+            <CardContent>
+              <EscalatorWarningIcon sx={{fontSize: '60px'}} color='danger' />
+            </CardContent>
+            <CardContent>
+              <Typography variant='h6'>Pre School</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </Stack>
   )
 }
 

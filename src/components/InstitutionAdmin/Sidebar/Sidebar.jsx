@@ -113,7 +113,7 @@ function Sidebar() {
           noWrap
           sx={{ flexGrow: 1 }}
         >
-          Dashboard
+          Space of Knowledge
         </Typography>
         <Button size='large' onClick={signIn} sx={{height: 44, marginRight: 1}} variant="contained" color='danger'>
             Sign In

@@ -18,6 +18,8 @@ import Profile from './components/InstitutionAdmin/Profile/Profile';
 import IncreaseEfficiency from './components/InstitutionAdmin/IncreaseeEfficiency/IncreaseEfficiency';
 import MyAdvertising from './components/InstitutionAdmin/MyAdvertising/MyAdvertising';
 import CreateAdvertising from './components/InstitutionAdmin/CreateAdvertising/CreateAdvertising';
+import Verification from './components/Verification/Verification';
+import ChangePassword from './components/ChangePassword/ChangePassword';
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
           </Route>
           <Route path='sign-in' element={<SignIn />} />
           <Route path='sign-up' element={<SignUp />} />
+          <Route path='verification' element={<Verification />} />
+          <Route path='change-password' element={<ChangePassword />} />
           <Route path='institution-admin' element={<Sidebar />}> 
             <Route index element={<Dashboard />} />
             <Route path='dashboard' element={<Dashboard />} />

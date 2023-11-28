@@ -16,7 +16,7 @@ export const themeOptions = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Open Sans, cursive',
+    fontFamily: 'Poppins',
   },
 });  
 

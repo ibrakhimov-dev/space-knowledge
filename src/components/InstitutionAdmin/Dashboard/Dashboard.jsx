@@ -27,7 +27,8 @@ const columns = [
 function Dashboard() {
   return (
     <Stack>
-        <Grid container display='flex' justifyContent='space-between' spacing={4}>
+        <Typography variant='h4'>Dashboard</Typography>
+        <Grid container mt={4} display='flex' justifyContent='space-between' spacing={4}>
             <Grid item xl={8}  boxShadow={4} borderRadius={3}>
                 <Typography color='primary' variant='h5'>Applications in the last 6 months</Typography>
                 <BarChart
@@ -57,11 +58,11 @@ function Dashboard() {
                 <Typography mt={2}>From May 19, 2020</Typography>
             </Grid>
         </Grid>
-        <Grid container mt={4} spacing={4} >
-            <Grid item xl={12} borderRadius={3} pb={3} boxShadow={4}>
+        <Grid container spacing={4} mt={4} >
+            <Grid item xl={12} borderRadius={3} p={3} boxShadow={4}>
                 <Typography mb={3} color='primary' variant='h5'>Applications</Typography>
                 <DataGrid
-                    sx={{height: 600, fontSize: '16px'}}
+                    sx={{height: 600, fontSize: '16px', width: '100%'}}
                     rows={rows}
                     columns={columns}
                     initialState={{

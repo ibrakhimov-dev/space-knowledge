@@ -1,19 +1,16 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '../Assets/img/logo.svg'
 import { useNavigate } from 'react-router-dom';
+import { baseUrl, login_api_url } from '../../utils/API';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -34,14 +31,68 @@ function Copyright(props) {
 
 function SignIn() {
     const navigate = useNavigate();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [helperTextEmail, setHelperTextEmail] = React.useState('');
+    const [helperTextPassword, setHelperTextPassword] = React.useState('');
+    const [errorEmail, setErrorEmail] = React.useState(false);
+    const [errorPassword, setErrorPassword] = React.useState(false);
+    const [isAgreeEmail, setIsAgreeEmail] = React.useState (false);
+    const [isAgreeForgetPassword, setIsAgreeForgetPassword] = React.useState(false);
+    const headers = {
+      'Content-Type': 'application/json',
+      // 'Authorization' : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTcwMTEwOTM5M30.RdLAkGP4W_ncM-Veyk1CNgZzDdCc6hMgTjT-Jor6Jfc`,
+      "Access-Control-Allow-Origin": baseUrl
+    }
+
+    function login () {
+      if(email !== '' && password !== '' && email.includes('@') && password.length >= 6){
+        setErrorEmail(false);
+        setErrorPassword(false)
+        setHelperTextEmail("");
+        setHelperTextPassword("");
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        axios.post(login_api_url(), formData, {headers})
+        .then ((response) => {
+          console.log(response.data)
+            localStorage.setItem('accessToken', response.data.token); 
+            // localStorage.setItem('refreshToken', response.data.detail.tokens.refresh); 
+            navigate("/home")   
+        }).catch ((err) => {
+          console.log(err)
+            if(err.response.data.message === 'Email is not registered'){
+                setIsAgreeForgetPassword(false);
+                setIsAgreeEmail(true);
+            }else if(err.response.data.message === 'password is incorrect'){
+                setIsAgreeEmail(false);
+                setIsAgreeForgetPassword(true);
+            }
+        })
+    } else {
+        if (email === ""){
+            setHelperTextEmail("Enter your email...");
+            setErrorEmail(true);
+        } else if (!email.includes('@')) {
+            setHelperTextEmail("Include the @ sign in the email...");
+            setErrorEmail(true);
+        } else {
+            setHelperTextEmail("");
+            setErrorEmail(false);
+        }
+        if (password === ""){
+            setHelperTextPassword("Enter your password...");
+            setErrorPassword(true);
+        }else if (password.length < 7) {
+            setHelperTextPassword("Enter a password longer than 6 characters...");
+            setErrorPassword(true);
+        } else {
+            setHelperTextPassword("");
+            setErrorPassword(false);
+        }
+    }
+    }
 
   return (
       <Container component="main" maxWidth="xs">
@@ -60,13 +111,17 @@ function SignIn() {
           <Typography mt={2} component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form"  noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               color='primary'
               id="email"
+              error={errorEmail}
+              helperText={helperTextEmail}
               label="Email Address"
               name="email"
               autoComplete="email"
@@ -77,18 +132,20 @@ function SignIn() {
               required
               color='primary'
               fullWidth
+              value={password}            
+              error={errorPassword}
+              onChange={(e) => setPassword(e.target.value)}
               name="password"
+              helperText={helperTextPassword}
               label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            {isAgreeEmail ? <Typography variant='subtitle1' color='error'>Email topilmadi. Iltimos ro'yxatdan o'ting!!!</Typography>: 
+            isAgreeForgetPassword ? <Typography variant='subtitle1' color='error'>Parol xato !!!</Typography> : ""}
             <Button
-              type="submit"
+              onClick={login}
               color='danger'
               fullWidth
               variant="contained"
@@ -103,7 +160,7 @@ function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" color='primary' variant="body2">
+                <Link href="#" onClick={() => {navigate("/sign-up")}} color='primary' variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
