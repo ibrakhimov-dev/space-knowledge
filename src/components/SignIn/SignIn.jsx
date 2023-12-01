@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from '../Assets/img/logo.svg'
 import { useNavigate } from 'react-router-dom';
-import { baseUrl, login_api_url } from '../../utils/API';
+import { baseUrl, login_api_url, forgot_password_api_url } from '../../utils/API';
 import axios from 'axios';
 
 function Copyright(props) {
@@ -41,7 +41,6 @@ function SignIn() {
     const [isAgreeForgetPassword, setIsAgreeForgetPassword] = React.useState(false);
     const headers = {
       'Content-Type': 'application/json',
-      // 'Authorization' : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTcwMTEwOTM5M30.RdLAkGP4W_ncM-Veyk1CNgZzDdCc6hMgTjT-Jor6Jfc`,
       "Access-Control-Allow-Origin": baseUrl
     }
 
@@ -92,6 +91,13 @@ function SignIn() {
             setErrorPassword(false);
         }
     }
+    }
+
+    function forgotPassword () {
+      axios.post(forgot_password_api_url(), {email: email}, {headers})
+      .then((res) => {
+        navigate("/change-password", {state: {email: email}})
+      })
     }
 
   return (
@@ -155,7 +161,7 @@ function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" color='primary' variant="body2">
+                <Link href="#" onClick={forgotPassword} color='primary' variant="body2">
                   Forgot password?
                 </Link>
               </Grid>

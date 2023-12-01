@@ -228,6 +228,10 @@ function Detail() {
                             <TagIcon color='danger' />
                             <Typography>Narxi: 1200000 - 1500000 so'm</Typography>
                         </Stack>
+                        <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                            <TagIcon color='danger' />
+                            <Typography>Rating: 4.5</Typography>
+                        </Stack>
                     </Grid>
                     <Grid item xl={6}>
                         <Stack mt={1} direction="row" alignItems="center" gap={1}>
@@ -241,6 +245,10 @@ function Detail() {
                         <Stack mt={1} direction="row" alignItems="center" gap={1}>
                             <TagIcon color='danger' />
                             <Typography>99 888 56 45</Typography>
+                        </Stack>
+                        <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                            <TagIcon color='danger' />
+                            <Typography>123 views</Typography>
                         </Stack>
                         <Stack mt={1} direction="row" alignItems="center" gap={1}>
                             <TagIcon color='danger' />

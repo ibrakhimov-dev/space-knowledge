@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../Assets/img/logo.svg';
 import ClearIcon from '@mui/icons-material/Clear';
 import ReactCodeInput from 'react-verification-code-input';
-import {Paper, Stack, Grid, FormControl, Typography, FormGroup, TextField, Button, FormLabel, Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import {Paper, Stack, Typography, Button, Box } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { verification_api_url, baseUrl, reset_verify_api_url } from '../../utils/API';
 import axios from 'axios';
 
 function Verification() {
-    const [verificationEmail, setVerificationEmail] = useState('email');
+    const location = useLocation();
+    const [verificationEmail, setVerificationEmail] = useState(location.state.email);
     let [count, setCount] = useState(59);
     const navigate = useNavigate();
     let [isAgreeResetCode, setIsAgreeResetCode] = useState(false);
@@ -15,7 +16,7 @@ function Verification() {
 
     const headers = {
         'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": ""
+        "Access-Control-Allow-Origin": baseUrl
     }
 
     
@@ -47,7 +48,7 @@ function Verification() {
 
       function resetCode () {
         setIsAgreeResetCode(false);
-        axios.post( {email: "asdsa"}, headers)
+        axios.post(reset_verify_api_url(), {email: verificationEmail}, {headers})
         .then((res) =>{
           const time = setInterval(() => {
             setCount(prev => {
@@ -63,12 +64,12 @@ function Verification() {
       }
 
       function verify () {
-        axios.post( {code: code} , {headers})
+        axios.post(verification_api_url(), {verificationCode: code,
+          email: verificationEmail} , {headers})
         .then((res) => {
             console.log(res)
-            localStorage.setItem('accessToken', res.data.access); 
-            localStorage.setItem('refreshToken', res.data.refresh);  
-            navigate("student-helper/home");
+            localStorage.setItem('accessToken', res.data.token); 
+            navigate("/home");
         })
     }
     
@@ -85,10 +86,10 @@ function Verification() {
                 <Typography mt={2} variant='subtitle1' color='success' gutterBottom>{verificationEmail} emailga kelgan kodni kiriting</Typography>
                 <ReactCodeInput onChange={handleVerification} />
                 {
-                    isAgreeResetCode ? <Typography variant='subtitle1' sx={{marginTop: '0.5rem'}} color='error'>Parolni qaytadan yuborish <a href="#reset-code" onClick={resetCode}>Reset code</a></Typography> :
+                    isAgreeResetCode ? <Typography variant='subtitle1' sx={{marginTop: '0.5rem'}} color='error'>Parolni qaytadan yuborish <span style={{textDecoration: 'underline', color: "#072556", cursor: 'pointer'}} onClick={resetCode}>Reset code</span></Typography> :
                     <Typography variant='subtitle1' sx={{marginTop: '0.5rem'}} color='error'>Sizda qolgan vaqt 00 : {generationNumber(count)}</Typography>
                 }
-                <Button onClick={verify} variant='contained' color='success' sx={{margin: "2rem 0"}}>Yuborish</Button>
+                <Button onClick={verify} variant='contained' color='primary' sx={{margin: "2rem 0"}}>Yuborish</Button>
             </Box>
         </Paper>
     </Stack>

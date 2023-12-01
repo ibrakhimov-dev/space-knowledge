@@ -20,6 +20,7 @@ import MyAdvertising from './components/InstitutionAdmin/MyAdvertising/MyAdverti
 import CreateAdvertising from './components/InstitutionAdmin/CreateAdvertising/CreateAdvertising';
 import Verification from './components/Verification/Verification';
 import ChangePassword from './components/ChangePassword/ChangePassword';
+import Application from './components/Application/Application';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path='home' element={<Home />} />
             <Route path='search' element={<Search />} />
+            <Route path='application' element={<Application />} />
             <Route path='like' element={<Like />} />
             <Route path='detail' element={<Detail/>}> 
               <Route index element={<Description />} />

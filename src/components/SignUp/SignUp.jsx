@@ -11,6 +11,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import logo from "../Assets/img/logo.svg"
+import { register_api_url, baseUrl } from '../../utils/API';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -42,12 +44,17 @@ function SignUp() {
     const [helperTextEmail, setHelperTextEmail] = useState('');
     const [helperTextFullName, setHelperTextFullName] = useState('');
     const [helperTextPass1, setHelperTextPass1] = useState('');
-    const [helperTextpass2, setHelperTextPass2] = useState('');
+    const [helperTextPass2, setHelperTextPass2] = useState('');
+    const headers = {
+      'Content-Type': 'application/json',
+      "Access-Control-Allow-Origin": baseUrl
+    }
     const formData = new FormData();
     formData.append('email', email);
-    formData.append('full_name', fullName);
+    formData.append('fullname', fullName);
     formData.append('password', pass1);
-    formData.append('password2', pass2);
+    formData.append('retryPassword', pass2);
+    formData.append('isSchoolAdmin', role === true ? "School" : "User");
 
     function handleChecked () {
       if (role) {
@@ -59,7 +66,16 @@ function SignUp() {
 
     function signUp () {
       if (email !== "" && fullName !== "" && pass1 !== "" && pass2 !== "" && pass1 === pass2 && pass1.length >= 6 && email.includes('@')){
-          navigate("/verification")
+          axios.post(register_api_url(), formData, {headers})
+          .then((res) => {
+           navigate("/verification", {state: {email: email}})
+          })
+          .catch((err) =>{
+            console.log(err);
+            if (err.response.data.error === 'User already exists'){
+              alert('User already exists')
+            }
+          })
       } else {
           if (email === ""){
               setHelperTextEmail("Enter your email...");
@@ -171,7 +187,7 @@ function SignUp() {
                   value={pass2}
                   type='password'
                   onChange={(e) => setPass2(e.target.value)}
-                  error={errorPass2}  helperText={helperTextpass2}
+                  error={errorPass2}  helperText={helperTextPass2}
                   label="Reset Password"
                   name="reset-password"
                   autoComplete="reset-password"

@@ -7,6 +7,7 @@ import SendOutlined from '@mui/icons-material/SendOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import TagIcon from '@mui/icons-material/Tag';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 // 
 import { useTheme } from '@mui/material/styles';
 import SwipeableViews from 'react-swipeable-views';
@@ -121,10 +122,14 @@ function Academy() {
                 </AutoPlaySwipeableViews>
               </Box>
             </CardContent>   
-            <CardContent sx={{marginTop: '-20px'}}>
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
               <Stack mt={1} direction="row" alignItems="center" gap={1}>
                 <AccessTimeIcon color='grey' fontSize='small' />        
                 <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
               </Stack>
             </CardContent>    
             <CardContent sx={{marginTop: '-20px'}}>
@@ -200,6 +205,15 @@ function Academy() {
                 >
                   <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
@@ -301,10 +315,14 @@ function Academy() {
                 </AutoPlaySwipeableViews>
               </Box>
             </CardContent>   
-            <CardContent sx={{marginTop: '-20px'}}>
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
               <Stack mt={1} direction="row" alignItems="center" gap={1}>
                 <AccessTimeIcon color='grey' fontSize='small' />        
                 <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
               </Stack>
             </CardContent>    
             <CardContent sx={{marginTop: '-20px'}}>
@@ -380,6 +398,15 @@ function Academy() {
                 >
                   <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
@@ -481,10 +508,14 @@ function Academy() {
                 </AutoPlaySwipeableViews>
               </Box>
             </CardContent>   
-            <CardContent sx={{marginTop: '-20px'}}>
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
               <Stack mt={1} direction="row" alignItems="center" gap={1}>
                 <AccessTimeIcon color='grey' fontSize='small' />        
                 <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
               </Stack>
             </CardContent>    
             <CardContent sx={{marginTop: '-20px'}}>
@@ -560,6 +591,15 @@ function Academy() {
                 >
                   <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
