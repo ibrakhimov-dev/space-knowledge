@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Home from '../Home/Home'
 import Footer from '../Footer/Footer'
 import Category from '../Category/Category'
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { Container, Grid, Stack, Box, SvgIcon, Typography, IconButton, Paper, InputBase, FormControl, FormGroup, Select, MenuItem, Button } from '@mui/material'
+import { Container, Grid, Tooltip, Avatar, Stack, Box, SvgIcon, Menu, Typography, IconButton, Paper, InputBase, FormControl, FormGroup, Select, MenuItem, Button } from '@mui/material'
 import ContrastIcon from '@mui/icons-material/Contrast';
 import SearchIcon from '@mui/icons-material/Search';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -15,10 +15,28 @@ function Header() {
   const [language, setLanguage] = useState('English');
   const [isAgreeCategory, setIsAgreeCategory] = useState('none');
   const navigate = useNavigate();
+  const [role, setRole] = useState(2);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [userMenu, setUserMenu] = useState([]);
+  const [trainingCenterMenu, setTrainingCenterMenu] = useState([]);
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   const handleChange = (event) => {
     setLanguage(event.target.value);
   };
+
+  useEffect(() => {
+    setUserMenu(['Profile', 'Account', 'Submit An Application'])
+    setTrainingCenterMenu(['Dashboard', 'My Advertising', 'Profile', "Create Advertising", 'Increase Efficiency', 'Log Out'])
+  }, [])
 
   function openCategory () {
     if(isAgreeCategory === 'none') {
@@ -26,6 +44,19 @@ function Header() {
     }else {
       setIsAgreeCategory('none');
     }
+  }
+
+  function adminPanelLink (menu) {
+    let newMenu = menu.toLowerCase().split(" ");
+    
+    if(newMenu.length > 1){
+      newMenu = newMenu[0] + "-" + newMenu[1];
+    }else {
+      newMenu = menu.toLowerCase();
+    }
+    console.log(newMenu);
+
+    navigate(`/institution-admin/${newMenu}`)
   }
 
   function search () {
@@ -108,12 +139,78 @@ function Header() {
                 </Paper>
               </Grid>
               <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
-                <Button size='large' onClick={signIn} sx={{height: 44}} variant="contained" color='danger'>
-                  Sign In
-                </Button>
-                <Button size='large' onClick={signUp} sx={{height: 44}} variant="contained" color='primary'>
-                  Sign Up
-                </Button>
+                {
+                  role === null ? <>
+                    <Button size='large' onClick={signIn} sx={{height: 44}} variant="contained" color='danger'>
+                    Sign In
+                  </Button>
+                  <Button size='large' onClick={signUp} sx={{height: 44}} variant="contained" color='primary'>
+                    Sign Up
+                  </Button>
+                  </> : <Box sx={{ flexGrow: 0, width: '220px' }}>
+                    <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-start'>
+                      <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />  
+                      </IconButton>
+                      <Typography variant="" fontWeight='bold' fontSize={16}>Full Name</Typography>
+                    </Stack>
+                    {
+                      role === 1 ?
+                        <Menu
+                      sx={{ mt: '45px' }}
+                      id="menu-appbar"
+                      anchorEl={anchorElUser}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={Boolean(anchorElUser)}
+                      onClose={handleCloseUserMenu}
+                    >
+                        {
+                          userMenu.map((item, index) => {
+                            return (
+                              <MenuItem key={index + 1}>
+                                <Typography textAlign="center">{item}</Typography>
+                              </MenuItem>
+                            )
+                          })
+                        }
+                        </Menu>
+                      : <Menu
+                      sx={{ mt: '45px' }}
+                      id="menu-appbar"
+                      anchorEl={anchorElUser}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={Boolean(anchorElUser)}
+                      onClose={handleCloseUserMenu}
+                    >
+                        {
+                          trainingCenterMenu.map((item, index) => {
+                            return (
+                              <MenuItem onClick={() => adminPanelLink(item)} key={index + 1}>
+                                <Typography textAlign="center">{item}</Typography>
+                              </MenuItem>
+                            )
+                          })
+                        }
+                      </Menu>
+                    }
+                  </Box>
+                }
                 <IconButton aria-label="contrast" onClick={like} color='danger'>
                   <FavoriteBorderIcon />
                 </IconButton>

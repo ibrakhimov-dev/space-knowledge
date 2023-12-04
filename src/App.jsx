@@ -52,7 +52,7 @@ function App() {
             <Route path='profile' element={<Profile />} />
             <Route path='my-advertising' element={<MyAdvertising />} />
             <Route path='create-Advertising' element={<CreateAdvertising />} />
-            <Route path='inc-efficiency' element={<IncreaseEfficiency />} />
+            <Route path='increase-efficiency' element={<IncreaseEfficiency />} />
           </Route>
         </Routes>
       </BrowserRouter>

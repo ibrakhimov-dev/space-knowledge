@@ -57,7 +57,7 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <React.Fragment>
-    <Link to='inc-efficiency' style={navLinkStyle}>
+    <Link to='increase-efficiency' style={navLinkStyle}>
         <ListItemButton>
         <ListItemIcon>
             <MonetizationOnIcon color='danger'/>
