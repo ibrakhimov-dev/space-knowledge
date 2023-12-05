@@ -21,8 +21,13 @@ import CreateAdvertising from './components/InstitutionAdmin/CreateAdvertising/C
 import Verification from './components/Verification/Verification';
 import ChangePassword from './components/ChangePassword/ChangePassword';
 import Application from './components/Application/Application';
+import UserProfile from './components/UserProfile/UserProfile';
+import Account from './components/Account/Account';
+import Error from './components/Error/Error';
+import { useState } from 'react';
 
 function App() {
+  const [role, setRole] = useState(1);
   return (
     <ThemeProvider theme={themeOptions}>
       <CssBaseline />
@@ -32,8 +37,10 @@ function App() {
             <Route index element={<Home />} />
             <Route path='home' element={<Home />} />
             <Route path='search' element={<Search />} />
-            <Route path='application' element={<Application />} />
+            <Route path='submit-application' element={<Application />} />
             <Route path='like' element={<Like />} />
+            <Route path='account' element={<Account />} />
+            <Route path='user-profile' element={<UserProfile />} />
             <Route path='detail' element={<Detail/>}> 
               <Route index element={<Description />} />
               <Route path='description' element={<Description />} />
@@ -42,18 +49,23 @@ function App() {
               <Route path='leave-application' element={<LeaveApplication />} />
             </Route>
           </Route>
+          <Route path='*' element={<Error />} />
           <Route path='sign-in' element={<SignIn />} />
           <Route path='sign-up' element={<SignUp />} />
           <Route path='verification' element={<Verification />} />
           <Route path='change-password' element={<ChangePassword />} />
-          <Route path='institution-admin' element={<Sidebar />}> 
-            <Route index element={<Dashboard />} />
-            <Route path='dashboard' element={<Dashboard />} />
-            <Route path='profile' element={<Profile />} />
-            <Route path='my-advertising' element={<MyAdvertising />} />
-            <Route path='create-Advertising' element={<CreateAdvertising />} />
-            <Route path='increase-efficiency' element={<IncreaseEfficiency />} />
-          </Route>
+          {
+            role === 2 ? <>
+              <Route path='institution-admin' element={<Sidebar />}> 
+                <Route index element={<Dashboard />} />
+                <Route path='dashboard' element={<Dashboard />} />
+                <Route path='profile' element={<Profile />} />
+                <Route path='my-advertising' element={<MyAdvertising />} />
+                <Route path='create-Advertising' element={<CreateAdvertising />} />
+                <Route path='increase-efficiency' element={<IncreaseEfficiency />} />
+              </Route>
+            </>: <></>
+          }
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

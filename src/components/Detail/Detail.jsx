@@ -305,7 +305,7 @@ function Detail() {
                 >
                     <Avatar
                     size="small"
-                    src={academyLogo}
+                    src="https://picsum.photos/2000/2000"
                     sx={{ border: '2px solid', borderColor: '#BC002D' }}
                     />
                     <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
@@ -320,7 +320,7 @@ function Detail() {
                     <Typography variant='body' fontWeight='bold'>Bizning Web sayt:</Typography>
                     <Stack mt={1} direction="row" alignItems="center" gap={1}>
                         <PublicIcon color='danger' />
-                        <Typography><a href="https://online.pdp.uz/">https://online.pdp.uz/</a></Typography>
+                        <Typography><a href="#">Academy website</a></Typography>
                     </Stack> 
                 </CardContent>
                 <CardContent>
@@ -352,19 +352,19 @@ function Detail() {
                     <Typography variant='body' fontWeight='bold'>Ijtimoiy tarmoqlar:</Typography>
                     <Stack mt={1} direction="row" alignItems="center" gap={1}>
                         <InstagramIcon color='danger' />
-                        <Typography><a href="https://online.pdp.uz/">https://online.pdp.uz/</a></Typography>
+                        <Typography><a href="#">Social Network</a></Typography>
                     </Stack> 
                     <Stack mt={1} direction="row" alignItems="center" gap={1}>
                         <TelegramIcon color='danger' />
-                        <Typography><a href="https://online.pdp.uz/">https://online.pdp.uz/</a></Typography>
+                        <Typography><a href="#">Social Network</a></Typography>
                     </Stack>
                     <Stack mt={1} direction="row" alignItems="center" gap={1}>
                         <YouTubeIcon color='danger' />
-                        <Typography><a href="https://online.pdp.uz/">https://online.pdp.uz/</a></Typography>
+                        <Typography><a href="#">Social Network</a></Typography>
                     </Stack>
                     <Stack mt={1} direction="row" alignItems="center" gap={1}>
                         <FacebookIcon color='danger' />
-                        <Typography><a href="https://online.pdp.uz/">https://online.pdp.uz/</a></Typography>
+                        <Typography><a href="#">Social Network</a></Typography>
                     </Stack>
                 </CardContent>    
                 </Card>

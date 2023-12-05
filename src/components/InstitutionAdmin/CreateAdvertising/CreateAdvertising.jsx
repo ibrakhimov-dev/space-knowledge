@@ -72,8 +72,9 @@ function CreateAdvertising() {
     const onDragLeave = () => wrapperRef.current.classList.remove('dragover');
     const onDrop = () => wrapperRef.current.classList.remove('dragover');
 
+    
+
     const onFileDrop = (e) => {
-        console.log(e.target.files)
         const newFile = e.target.files[0];
         if (newFile) {
             const updatedList = [...fileList, newFile];

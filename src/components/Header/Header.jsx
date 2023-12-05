@@ -15,7 +15,7 @@ function Header() {
   const [language, setLanguage] = useState('English');
   const [isAgreeCategory, setIsAgreeCategory] = useState('none');
   const navigate = useNavigate();
-  const [role, setRole] = useState(2);
+  const [role, setRole] = useState(1);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [userMenu, setUserMenu] = useState([]);
@@ -34,7 +34,7 @@ function Header() {
   };
 
   useEffect(() => {
-    setUserMenu(['Profile', 'Account', 'Submit An Application'])
+    setUserMenu(['User Profile', 'Account', 'Submit Application'])
     setTrainingCenterMenu(['Dashboard', 'My Advertising', 'Profile', "Create Advertising", 'Increase Efficiency', 'Log Out'])
   }, [])
 
@@ -57,6 +57,19 @@ function Header() {
     console.log(newMenu);
 
     navigate(`/institution-admin/${newMenu}`)
+  }
+
+  function userLink (menu) {
+    let newMenu = menu.toLowerCase().split(" ");
+    
+    if(newMenu.length > 1){
+      newMenu = newMenu[0] + "-" + newMenu[1];
+    }else {
+      newMenu = menu.toLowerCase();
+    }
+    console.log(newMenu);
+
+    navigate(`${newMenu}`)
   }
 
   function search () {
@@ -139,6 +152,9 @@ function Header() {
                 </Paper>
               </Grid>
               <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+                <IconButton aria-label="contrast" onClick={like} color='danger'>
+                  <FavoriteBorderIcon />
+                </IconButton>
                 {
                   role === null ? <>
                     <Button size='large' onClick={signIn} sx={{height: 44}} variant="contained" color='danger'>
@@ -148,11 +164,11 @@ function Header() {
                     Sign Up
                   </Button>
                   </> : <Box sx={{ flexGrow: 0, width: '220px' }}>
-                    <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-start'>
+                    <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-end'>
+                      <Typography variant="" fontWeight='bold' fontSize={16}>Full Name</Typography>
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />  
                       </IconButton>
-                      <Typography variant="" fontWeight='bold' fontSize={16}>Full Name</Typography>
                     </Stack>
                     {
                       role === 1 ?
@@ -176,7 +192,7 @@ function Header() {
                           userMenu.map((item, index) => {
                             return (
                               <MenuItem key={index + 1}>
-                                <Typography textAlign="center">{item}</Typography>
+                                <Typography onClick={() => userLink(item)} textAlign="center">{item}</Typography>
                               </MenuItem>
                             )
                           })
@@ -211,9 +227,7 @@ function Header() {
                     }
                   </Box>
                 }
-                <IconButton aria-label="contrast" onClick={like} color='danger'>
-                  <FavoriteBorderIcon />
-                </IconButton>
+                
               </Grid>
             </Grid>
             <Box sx={{position: 'relative'}}>

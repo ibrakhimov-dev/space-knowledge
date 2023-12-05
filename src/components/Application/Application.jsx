@@ -80,6 +80,7 @@ function Application() {
 
   return (
     <Stack>
+      <Typography my={3} variant='h6' color='primary' fontWeight='bold'>Submit an Applications</Typography>
         <Grid container spacing={3}>
             <Grid item xl={3} mt={3} py={3}>
                 <Typography variant='subtitle1' fontWeight='bold'>Category:</Typography>
@@ -255,585 +256,585 @@ function Application() {
             <Grid item xl={9} mt={3} py={3}>
                 <Typography variant='subtitle1' fontWeight='bold'>Academy</Typography>
                 <Grid container mt={3} spacing={1}>
-                    <Grid item mt={1} xl={6}>
-                      <Card            
-                        variant="outlined"
+                <Grid item mt={1} xl={6}>
+          <Card            
+            variant="outlined"
+            sx={{
+              borderRadius: '5px',
+              height: '100%',
+              position: 'relative',
+              boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+              '&:hover': {
+                boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+              },
+            }}
+          >
+            <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                }}
+              >
+                <Avatar
+                  size="small"
+                  src="https://picsum.photos/2000/2000"
+                  sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                />
+                <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
+                  Lorem, ipsum dolor.
+                </Typography>
+              </Box>
+            </CardContent>
+            <CardContent>
+              <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
+                <AutoPlaySwipeableViews
+                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                  index={activeStep}
+                  onChangeIndex={handleStepChange}
+                  enableMouseEvents
+                >
+                  {images.map((step, index) => (
+                    <div key={step.label}>
+                      {Math.abs(activeStep - index) <= 2 ? (
+                        <Box
+                          component="img"
+                          sx={{
+                            display: 'block',
+                            maxWidth: '100%',
+                            overflow: 'hidden',
+                            width: '100%',
+                          }}
+                          src={step.imgPath}
+                          alt={step.label}
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+                </AutoPlaySwipeableViews>
+              </Box>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
+              <Box>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Region"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Toshkent Shaxri
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="City"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Shayxontohur tumani
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Phone"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Institution"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
+                </Fab>
+              </Box>
+            </CardContent>
+            <CardContent>
+              <Typography variant='subtitle2'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
+              </Typography>
+
+            </CardContent>
+            <CardContent
+              orientation="horizontal"
+              sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+            >
+              <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
+                <IconButton
+                  variant="plain"
+                  color="primary"
+                  size="sm"
+                >
+                  <SendOutlined />
+                </IconButton>
+                <IconButton
+                  variant="plain"
+                  color="primary"
+                  size="sm"
+                >
+                  <FavoriteBorderIcon />
+                </IconButton>
+                  <Button
+                    onClick={() => detail()}
+                    sx={{ position: 'absolute', right: 22, top: 20 }}
+                    variant="contained"
+                    color="danger"
+                    size="small"
+                  >
+                    Connect
+                  </Button>
+              </Box>
+            </CardContent>
+          </Card>
+                </Grid>
+                <Grid item mt={1} xl={6}>
+          <Card            
+            variant="outlined"
+            sx={{
+              borderRadius: '5px',
+              height: '100%',
+              position: 'relative',
+              boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+              '&:hover': {
+                boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+              },
+            }}
+          >
+            <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                }}
+              >
+                <Avatar
+                  size="small"
+                  src="https://picsum.photos/2000/2000"
+                  sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                />
+                <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
+                  Lorem, ipsum dolor.
+                </Typography>
+              </Box>
+            </CardContent>
+            <CardContent>
+              <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
+                <AutoPlaySwipeableViews
+                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                  index={activeStep}
+                  onChangeIndex={handleStepChange}
+                  enableMouseEvents
+                >
+                  {images.map((step, index) => (
+                    <div key={step.label}>
+                      {Math.abs(activeStep - index) <= 2 ? (
+                        <Box
+                          component="img"
+                          sx={{
+                            display: 'block',
+                            maxWidth: '100%',
+                            overflow: 'hidden',
+                            width: '100%',
+                          }}
+                          src={step.imgPath}
+                          alt={step.label}
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+                </AutoPlaySwipeableViews>
+              </Box>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
+              <Box>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Region"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Toshkent Shaxri
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="City"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Shayxontohur tumani
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Phone"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Institution"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
+                </Fab>
+              </Box>
+            </CardContent>
+            <CardContent>
+              <Typography variant='subtitle2'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
+              </Typography>
+
+            </CardContent>
+            <CardContent
+              orientation="horizontal"
+              sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+            >
+              <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
+                <IconButton
+                  variant="plain"
+                  color="primary"
+                  size="sm"
+                >
+                  <SendOutlined />
+                </IconButton>
+                <IconButton
+                  variant="plain"
+                  color="primary"
+                  size="sm"
+                >
+                  <FavoriteBorderIcon />
+                </IconButton>
+                  <Button
+                    onClick={() => detail()}
+                    sx={{ position: 'absolute', right: 22, top: 20 }}
+                    variant="contained"
+                    color="danger"
+                    size="small"
+                  >
+                    Connect
+                  </Button>
+              </Box>
+            </CardContent>
+          </Card>
+                </Grid>
+                <Grid item mt={1} xl={6}>
+                  <Card            
+                    variant="outlined"
+                    sx={{
+                      borderRadius: '5px',
+                      height: '100%',
+                      position: 'relative',
+                      boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
+                      '&:hover': {
+                        boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
+                      },
+                    }}
+                  >
+                    <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <Box
                         sx={{
-                          borderRadius: '5px',
-                          height: '100%',
-                          position: 'relative',
-                          boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
-                          '&:hover': {
-                            boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
-                          },
+                          display: 'flex',
+                          justifyContent: 'flex-start',
+                          alignItems: 'center',
+                          gap: '0.5rem',
                         }}
                       >
-                        <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              justifyContent: 'flex-start',
-                              alignItems: 'center',
-                              gap: '0.5rem',
-                            }}
-                          >
-                            <Avatar
-                              size="small"
-                              src={academyLogo}
-                              sx={{ border: '2px solid', borderColor: '#BC002D' }}
-                            />
-                            <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                              Pdp Academy
-                            </Typography>
-                          </Box>
-                        </CardContent>
-                        <CardContent>
-                          <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-                            <AutoPlaySwipeableViews
-                              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                              index={activeStep}
-                              onChangeIndex={handleStepChange}
-                              enableMouseEvents
-                            >
-                              {images.map((step, index) => (
-                                <div key={step.label}>
-                                  {Math.abs(activeStep - index) <= 2 ? (
-                                    <Box
-                                      component="img"
-                                      sx={{
-                                        display: 'block',
-                                        maxWidth: '100%',
-                                        overflow: 'hidden',
-                                        width: '100%',
-                                      }}
-                                      src={step.imgPath}
-                                      alt={step.label}
-                                    />
-                                  ) : null}
-                                </div>
-                              ))}
-                            </AutoPlaySwipeableViews>
-                          </Box>
-                        </CardContent>   
-                        <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
-                          <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                            <AccessTimeIcon color='grey' fontSize='small' />        
-                            <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
-                          </Stack>
-                          <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                            <RemoveRedEyeIcon color='grey' fontSize='small' />        
-                            <Typography variant='body2' color='grey'>123 views</Typography>
-                          </Stack>
-                        </CardContent>    
-                        <CardContent sx={{marginTop: '-20px'}}>
-                          <Box>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Region"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Toshkent Shaxri
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="City"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Shayxontohur tumani
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Phone"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              +998787774747
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Institution"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Training Center
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Direction"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              IT
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Subject"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Frontend Developer
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Price"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              1000000 - 1500000 so'm
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Print"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              120 connections
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Print"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              4.5 Rating
-                            </Fab>
-                          </Box>
-                        </CardContent>
-                        <CardContent>
-                          <Typography variant='subtitle2'>
-                            Dasturlashni qulay muhitda o'rganing.
-                          </Typography>
-
-                        </CardContent>
-                        <CardContent
-                          orientation="horizontal"
-                          sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+                        <Avatar
+                          size="small"
+                          src="https://picsum.photos/2000/2000"
+                          sx={{ border: '2px solid', borderColor: '#BC002D' }}
+                        />
+                        <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
+                          Lorem, ipsum dolor.
+                        </Typography>
+                      </Box>
+                    </CardContent>
+                    <CardContent>
+                      <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
+                        <AutoPlaySwipeableViews
+                          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                          index={activeStep}
+                          onChangeIndex={handleStepChange}
+                          enableMouseEvents
                         >
-                          <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
-                            <IconButton
-                              variant="plain"
-                              color="primary"
-                              size="sm"
-                            >
-                              <SendOutlined />
-                            </IconButton>
-                            <IconButton
-                              variant="plain"
-                              color="primary"
-                              size="sm"
-                            >
-                              <FavoriteBorderIcon />
-                            </IconButton>
-                              <Button
-                                onClick={() => detail()}
-                                sx={{ position: 'absolute', right: 22, top: 20 }}
-                                variant="contained"
-                                color="danger"
-                                size="small"
-                              >
-                                Connect
-                              </Button>
-                          </Box>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                    <Grid item mt={1} xl={6}>
-                      <Card            
-                        variant="outlined"
-                        sx={{
-                          borderRadius: '5px',
-                          height: '100%',
-                          position: 'relative',
-                          boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
-                          '&:hover': {
-                            boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
-                          },
-                        }}
-                      >
-                        <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              justifyContent: 'flex-start',
-                              alignItems: 'center',
-                              gap: '0.5rem',
-                            }}
-                          >
-                            <Avatar
-                              size="small"
-                              src={academyLogo}
-                              sx={{ border: '2px solid', borderColor: '#BC002D' }}
-                            />
-                            <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                              Pdp Academy
-                            </Typography>
-                          </Box>
-                        </CardContent>
-                        <CardContent>
-                          <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-                            <AutoPlaySwipeableViews
-                              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                              index={activeStep}
-                              onChangeIndex={handleStepChange}
-                              enableMouseEvents
-                            >
-                              {images.map((step, index) => (
-                                <div key={step.label}>
-                                  {Math.abs(activeStep - index) <= 2 ? (
-                                    <Box
-                                      component="img"
-                                      sx={{
-                                        display: 'block',
-                                        maxWidth: '100%',
-                                        overflow: 'hidden',
-                                        width: '100%',
-                                      }}
-                                      src={step.imgPath}
-                                      alt={step.label}
-                                    />
-                                  ) : null}
-                                </div>
-                              ))}
-                            </AutoPlaySwipeableViews>
-                          </Box>
-                        </CardContent>   
-                        <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
-                          <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                            <AccessTimeIcon color='grey' fontSize='small' />        
-                            <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
-                          </Stack>
-                          <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                            <RemoveRedEyeIcon color='grey' fontSize='small' />        
-                            <Typography variant='body2' color='grey'>123 views</Typography>
-                          </Stack>
-                        </CardContent>    
-                        <CardContent sx={{marginTop: '-20px'}}>
-                          <Box>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Region"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Toshkent Shaxri
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="City"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Shayxontohur tumani
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Phone"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              +998787774747
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Institution"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Training Center
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Direction"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              IT
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Subject"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Frontend Developer
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Price"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              1000000 - 1500000 so'm
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Print"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              120 connections
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Print"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              4.5 Rating
-                            </Fab>
-                          </Box>
-                        </CardContent>
-                        <CardContent>
-                          <Typography variant='subtitle2'>
-                            Dasturlashni qulay muhitda o'rganing.
-                          </Typography>
-
-                        </CardContent>
-                        <CardContent
-                          orientation="horizontal"
-                          sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+                          {images.map((step, index) => (
+                            <div key={step.label}>
+                              {Math.abs(activeStep - index) <= 2 ? (
+                                <Box
+                                  component="img"
+                                  sx={{
+                                    display: 'block',
+                                    maxWidth: '100%',
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                  }}
+                                  src={step.imgPath}
+                                  alt={step.label}
+                                />
+                              ) : null}
+                            </div>
+                          ))}
+                        </AutoPlaySwipeableViews>
+                      </Box>
+                    </CardContent>   
+                    <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+                      <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                        <AccessTimeIcon color='grey' fontSize='small' />        
+                        <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+                      </Stack>
+                      <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                        <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                        <Typography variant='body2' color='grey'>123 views</Typography>
+                      </Stack>
+                    </CardContent>    
+                    <CardContent sx={{marginTop: '-20px'}}>
+                      <Box>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Region"
                         >
-                          <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
-                            <IconButton
-                              variant="plain"
-                              color="primary"
-                              size="sm"
-                            >
-                              <SendOutlined />
-                            </IconButton>
-                            <IconButton
-                              variant="plain"
-                              color="primary"
-                              size="sm"
-                            >
-                              <FavoriteBorderIcon />
-                            </IconButton>
-                              <Button
-                                onClick={() => detail()}
-                                sx={{ position: 'absolute', right: 22, top: 20 }}
-                                variant="contained"
-                                color="danger"
-                                size="small"
-                              >
-                                Connect
-                              </Button>
-                          </Box>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                    <Grid item mt={1} xl={6}>
-                      <Card            
-                        variant="outlined"
-                        sx={{
-                          borderRadius: '5px',
-                          height: '100%',
-                          position: 'relative',
-                          boxShadow: '0px 10px 20px -10px rgba(0,0,0,0.75)',
-                          '&:hover': {
-                            boxShadow: '0px 10px 10px -10px rgba(0,0,0,0.75)',
-                          },
-                        }}
-                      >
-                        <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              justifyContent: 'flex-start',
-                              alignItems: 'center',
-                              gap: '0.5rem',
-                            }}
-                          >
-                            <Avatar
-                              size="small"
-                              src={academyLogo}
-                              sx={{ border: '2px solid', borderColor: '#BC002D' }}
-                            />
-                            <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                              Pdp Academy
-                            </Typography>
-                          </Box>
-                        </CardContent>
-                        <CardContent>
-                          <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-                            <AutoPlaySwipeableViews
-                              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                              index={activeStep}
-                              onChangeIndex={handleStepChange}
-                              enableMouseEvents
-                            >
-                              {images.map((step, index) => (
-                                <div key={step.label}>
-                                  {Math.abs(activeStep - index) <= 2 ? (
-                                    <Box
-                                      component="img"
-                                      sx={{
-                                        display: 'block',
-                                        maxWidth: '100%',
-                                        overflow: 'hidden',
-                                        width: '100%',
-                                      }}
-                                      src={step.imgPath}
-                                      alt={step.label}
-                                    />
-                                  ) : null}
-                                </div>
-                              ))}
-                            </AutoPlaySwipeableViews>
-                          </Box>
-                        </CardContent>   
-                        <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
-                          <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                            <AccessTimeIcon color='grey' fontSize='small' />        
-                            <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
-                          </Stack>
-                          <Stack mt={1} direction="row" alignItems="center" gap={1}>
-                            <RemoveRedEyeIcon color='grey' fontSize='small' />        
-                            <Typography variant='body2' color='grey'>123 views</Typography>
-                          </Stack>
-                        </CardContent>    
-                        <CardContent sx={{marginTop: '-20px'}}>
-                          <Box>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Region"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Toshkent Shaxri
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="City"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Shayxontohur tumani
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Phone"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              +998787774747
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Institution"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Training Center
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Direction"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              IT
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Subject"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              Frontend Developer
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Price"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              1000000 - 1500000 so'm
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Print"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              120 connections
-                            </Fab>
-                            <Fab
-                              sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
-                              variant="extended"
-                              size="small"
-                              aria-label="Print"
-                            >
-                              <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                              4.5 Rating
-                            </Fab>
-                          </Box>
-                        </CardContent>
-                        <CardContent>
-                          <Typography variant='subtitle2'>
-                            Dasturlashni qulay muhitda o'rganing.
-                          </Typography>
-
-                        </CardContent>
-                        <CardContent
-                          orientation="horizontal"
-                          sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          Toshkent Shaxri
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="City"
                         >
-                          <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
-                            <IconButton
-                              variant="plain"
-                              color="primary"
-                              size="sm"
-                            >
-                              <SendOutlined />
-                            </IconButton>
-                            <IconButton
-                              variant="plain"
-                              color="primary"
-                              size="sm"
-                            >
-                              <FavoriteBorderIcon />
-                            </IconButton>
-                              <Button
-                                onClick={() => detail()}
-                                sx={{ position: 'absolute', right: 22, top: 20 }}
-                                variant="contained"
-                                color="danger"
-                                size="small"
-                              >
-                                Connect
-                              </Button>
-                          </Box>
-                        </CardContent>
-                      </Card>
-                    </Grid>
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          Shayxontohur tumani
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Phone"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          +998787774747
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Institution"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          Training Center
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Direction"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          IT
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Subject"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          Frontend Developer
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Price"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          1000000 - 1500000 so'm
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Print"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          120 connections
+                        </Fab>
+                        <Fab
+                          sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                          variant="extended"
+                          size="small"
+                          aria-label="Print"
+                        >
+                          <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                          4.5 Rating
+                        </Fab>
+                      </Box>
+                    </CardContent>
+                    <CardContent>
+                      <Typography variant='subtitle2'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
+                      </Typography>
+
+                    </CardContent>
+                    <CardContent
+                      orientation="horizontal"
+                      sx={{ alignItems: 'center', mx: -1, position: 'relative' }}
+                    >
+                      <Box sx={{ width: 0, display: 'flex', gap: 0.5 }}>
+                        <IconButton
+                          variant="plain"
+                          color="primary"
+                          size="sm"
+                        >
+                          <SendOutlined />
+                        </IconButton>
+                        <IconButton
+                          variant="plain"
+                          color="primary"
+                          size="sm"
+                        >
+                          <FavoriteBorderIcon />
+                        </IconButton>
+                          <Button
+                            onClick={() => detail()}
+                            sx={{ position: 'absolute', right: 22, top: 20 }}
+                            variant="contained"
+                            color="danger"
+                            size="small"
+                          >
+                            Connect
+                          </Button>
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Grid>
                 </Grid>
                 <Stack mt={5}>
                     <Pagination sx={{margin: '0 auto'}} count={10} color="primary" />
@@ -851,7 +852,6 @@ function Application() {
                         label="First Name"
                         name="first-name"
                         autoComplete="first-name"
-                        autoFocus
                       />
                     </FormGroup>
                     <FormGroup>
@@ -863,8 +863,6 @@ function Application() {
                         id="last-name"
                         label="Last Name"
                         name="last-name"
-                        autoComplete="last-name"
-                        autoFocus
                       />
                     </FormGroup>
                     <FormGroup>
@@ -877,13 +875,12 @@ function Application() {
                         label="Phone"
                         name="phone"
                         autoComplete="phone"
-                        autoFocus
                       />
                     </FormGroup>
                   </FormControl>
                   <Box>
                     <Button
-                        type="submit"
+                        type="button"
                         color='danger'
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
