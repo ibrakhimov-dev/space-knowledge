@@ -1,4 +1,4 @@
-import { Grid, Stack, FormControl, FormGroup, TextField, MenuItem, Typography, Slider, Pagination, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
+import { Grid, Stack, FormControl, Radio, FormControlLabel, RadioGroup, FormGroup, TextField, MenuItem, Typography, Slider, Pagination, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
 import React, { useState } from 'react'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import academyLogo from '../Assets/img/academy-logo.png'
@@ -168,6 +168,22 @@ function Application() {
                             <Typography variant='subtitle2'>{value[0]*100000} so'm</Typography>
                             <Typography variant='subtitle2'>{value[1]*100000} so'm</Typography>
                         </Box>
+                    </Grid>
+                </Grid>
+                <Grid container mt={2}>
+                    <Grid item xl={12}>
+                        <FormControl>
+                        <Typography my={2} variant='subtitle1' fontWeight='bold'>Masofa:</Typography>
+                            <RadioGroup
+                                row
+                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                name="row-radio-buttons-group"
+                            >
+                                <FormControlLabel value="1" control={<Radio />} label="1-km" />
+                                <FormControlLabel value="5" control={<Radio />} label="5-km" />
+                                <FormControlLabel value="10" control={<Radio />} label="10-km" />
+                            </RadioGroup>
+                            </FormControl>
                     </Grid>
                 </Grid>
                 <Typography mt={2} variant='subtitle1' fontWeight='bold'>Region:</Typography>
@@ -875,6 +891,191 @@ function Application() {
                         label="Phone"
                         name="phone"
                         autoComplete="phone"
+                      />
+                    </FormGroup>
+                  </FormControl>
+                  <Box>
+                    <Button
+                        type="button"
+                        color='danger'
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                      >
+                        Apply to all
+                      </Button>
+                  </Box>
+                </Box>
+                <Box mt={2}>
+                  <FormControl>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="first-name"
+                        label="First Name"
+                        name="first-name"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="last-name"
+                        label="Last Name"
+                        name="last-name"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="father-name"
+                        label="Father Name"
+                        name="father-name"
+                      />
+                    </FormGroup>
+                    <FormGroup> 
+                      <TextField
+                        id="outlined-select-currency"
+                        select
+                        margin="normal"
+                        value={academy}
+                        onChange={(e) => {setAcademy(e.target.value)}}
+                        color='primary'
+                        label="Nationality"
+                        helperText="Please select Nationality">
+                            <MenuItem  value="O'quv Markaz">
+                                O'quv Markaz
+                            </MenuItem>
+                            <MenuItem  value="Universitet">
+                                Universitet
+                            </MenuItem>
+                            <MenuItem  value="Maktab">
+                                Maktab
+                            </MenuItem>
+                            <MenuItem  value="Maktabgacha Talim">
+                                Maktabgacha Talim
+                            </MenuItem>
+                      </TextField>
+                    </FormGroup>
+                    <FormGroup> 
+                      <TextField
+                        id="outlined-select-currency"
+                        select
+                        margin="normal"
+                        value={academy}
+                        onChange={(e) => {setAcademy(e.target.value)}}
+                        color='primary'
+                        label="Region"
+                        helperText="Please select Region">
+                            <MenuItem  value="O'quv Markaz">
+                                O'quv Markaz
+                            </MenuItem>
+                            <MenuItem  value="Universitet">
+                                Universitet
+                            </MenuItem>
+                            <MenuItem  value="Maktab">
+                                Maktab
+                            </MenuItem>
+                            <MenuItem  value="Maktabgacha Talim">
+                                Maktabgacha Talim
+                            </MenuItem>
+                      </TextField>
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="address"
+                        label="Address"
+                        name="address"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="email"
+                        label="Email"
+                        name="email"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="phone"
+                        label="Phone"
+                        name="phone"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="age"
+                        label="Age"
+                        name="age"
+                      />
+                    </FormGroup>
+                    <FormGroup> 
+                      <TextField
+                        id="outlined-select-currency"
+                        select
+                        margin="normal"
+                        value={academy}
+                        onChange={(e) => {setAcademy(e.target.value)}}
+                        color='primary'
+                        label="Gander"
+                        helperText="Please select Gander">
+                            <MenuItem  value="O'quv Markaz">
+                                O'quv Markaz
+                            </MenuItem>
+                            <MenuItem  value="Universitet">
+                                Universitet
+                            </MenuItem>
+                            <MenuItem  value="Maktab">
+                                Maktab
+                            </MenuItem>
+                            <MenuItem  value="Maktabgacha Talim">
+                                Maktabgacha Talim
+                            </MenuItem>
+                      </TextField>
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="last-academy"
+                        label="The last completed general secondary or secondary special educational institution"
+                        name="last-academy"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <TextField
+                        margin="normal"
+                        sx={{width: '400px'}}
+                        required
+                        color='primary'
+                        id="direction"
+                        label="Direction"
+                        name="direction"
                       />
                     </FormGroup>
                   </FormControl>

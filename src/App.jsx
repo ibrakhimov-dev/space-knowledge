@@ -24,6 +24,8 @@ import Application from './components/Application/Application';
 import UserProfile from './components/UserProfile/UserProfile';
 import Account from './components/Account/Account';
 import Error from './components/Error/Error';
+import Comparison from './components/Detail/Comparison';
+import Versus from './components/Versus/Versus';
 import { useState } from 'react';
 
 function App() {
@@ -37,15 +39,21 @@ function App() {
             <Route index element={<Home />} />
             <Route path='home' element={<Home />} />
             <Route path='search' element={<Search />} />
-            <Route path='submit-application' element={<Application />} />
             <Route path='like' element={<Like />} />
-            <Route path='account' element={<Account />} />
-            <Route path='user-profile' element={<UserProfile />} />
+            <Route path='versus' element={<Versus />} />
+            {
+              role === 1 ? <>
+                <Route path='submit-application' element={<Application />} />
+                <Route path='account' element={<Account />} />
+                <Route path='user-profile' element={<UserProfile />} />
+              </> : <></>
+            }
             <Route path='detail' element={<Detail/>}> 
               <Route index element={<Description />} />
               <Route path='description' element={<Description />} />
               <Route path='comment' element={<Comment />} />
               <Route path='certificate' element={<Certificate />} />
+              <Route path='comparison' element={<Comparison />} />
               <Route path='leave-application' element={<LeaveApplication />} />
             </Route>
           </Route>
