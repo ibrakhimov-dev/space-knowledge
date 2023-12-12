@@ -906,8 +906,10 @@ function Application() {
                   </Box>
                 </Box>
                 <Box mt={2}>
-                  <FormControl>
-                    <FormGroup>
+                  <Grid container spacing={3}>
+                    <Grid item xl={6}>
+                        <FormControl>
+                        <FormGroup>
                       <TextField
                         margin="normal"
                         sx={{width: '400px'}}
@@ -916,6 +918,7 @@ function Application() {
                         id="first-name"
                         label="First Name"
                         name="first-name"
+                        helperText="Please select First Name"
                       />
                     </FormGroup>
                     <FormGroup>
@@ -927,6 +930,7 @@ function Application() {
                         id="last-name"
                         label="Last Name"
                         name="last-name"
+                        helperText="Please select Last Name"
                       />
                     </FormGroup>
                     <FormGroup>
@@ -938,6 +942,7 @@ function Application() {
                         id="father-name"
                         label="Father Name"
                         name="father-name"
+                        helperText="Please select Father Name"
                       />
                     </FormGroup>
                     <FormGroup> 
@@ -995,11 +1000,16 @@ function Application() {
                         required
                         color='primary'
                         id="address"
+                        helperText="Please select Address"
                         label="Address"
                         name="address"
                       />
                     </FormGroup>
-                    <FormGroup>
+                        </FormControl>
+                    </Grid>
+                    <Grid item xl={6}>
+                        <FormControl>
+                        <FormGroup>
                       <TextField
                         margin="normal"
                         sx={{width: '400px'}}
@@ -1008,6 +1018,7 @@ function Application() {
                         id="email"
                         label="Email"
                         name="email"
+                        helperText="Please select Email"
                       />
                     </FormGroup>
                     <FormGroup>
@@ -1019,6 +1030,7 @@ function Application() {
                         id="phone"
                         label="Phone"
                         name="phone"
+                        helperText="Please select Phone"
                       />
                     </FormGroup>
                     <FormGroup>
@@ -1030,6 +1042,7 @@ function Application() {
                         id="age"
                         label="Age"
                         name="age"
+                        helperText="Please select Age"
                       />
                     </FormGroup>
                     <FormGroup> 
@@ -1063,6 +1076,7 @@ function Application() {
                         required
                         color='primary'
                         id="last-academy"
+                        helperText="Please select Last Academy"
                         label="The last completed general secondary or secondary special educational institution"
                         name="last-academy"
                       />
@@ -1076,9 +1090,12 @@ function Application() {
                         id="direction"
                         label="Direction"
                         name="direction"
+                        helperText="Please select Direction"
                       />
                     </FormGroup>
-                  </FormControl>
+                        </FormControl>
+                    </Grid>
+                  </Grid>
                   <Box>
                     <Button
                         type="button"
