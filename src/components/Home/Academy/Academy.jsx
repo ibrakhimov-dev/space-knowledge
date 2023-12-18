@@ -48,8 +48,8 @@ function Academy() {
 
   const naigate = useNavigate();
 
-  function detail () {
-    naigate('/detail')
+  function detail (id) {
+    naigate(`/detail/10`)
   }
 
   return (

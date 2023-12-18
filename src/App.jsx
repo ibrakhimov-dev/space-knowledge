@@ -29,7 +29,7 @@ import Versus from './components/Versus/Versus';
 import { useState } from 'react';
 
 function App() {
-  const [role, setRole] = useState(1);
+  const [role, setRole] = useState(2);
   return (
     <ThemeProvider theme={themeOptions}>
       <CssBaseline />
@@ -48,7 +48,7 @@ function App() {
                 <Route path='user-profile' element={<UserProfile />} />
               </> : <></>
             }
-            <Route path='detail' element={<Detail/>}> 
+            <Route path='detail/:id' element={<Detail/>}> 
               <Route index element={<Description />} />
               <Route path='description' element={<Description />} />
               <Route path='comment' element={<Comment />} />

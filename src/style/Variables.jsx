@@ -16,7 +16,7 @@ export const themeOptions = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Poppins',
+    fontFamily: 'Inter',
   },
 });  
 

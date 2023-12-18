@@ -1,4 +1,4 @@
-export const baseUrl = "http://192.168.101.192:5000";
+export const baseUrl = "http://127.0.0.1:8000";
 
 // login api url
 export const login_api_url = () => `${baseUrl}/api/auth/login`;
