@@ -14,6 +14,7 @@ import ImgFileIcon from "../../Assets/img/free-image-file.webp" ;
 import ClearIcon from '@mui/icons-material/Clear';
 import { Description } from '@mui/icons-material';
 import ReactQuill from 'react-quill';
+import SimpleMap from '../../SimpleMap/SimpleMap';
 import '../../../../node_modules/react-quill/dist/quill.snow.css'
 import "./_created_adverticing.css";
 // 
@@ -72,8 +73,9 @@ function CreateAdvertising() {
     const onDragLeave = () => wrapperRef.current.classList.remove('dragover');
     const onDrop = () => wrapperRef.current.classList.remove('dragover');
 
+    
+
     const onFileDrop = (e) => {
-        console.log(e.target.files)
         const newFile = e.target.files[0];
         if (newFile) {
             const updatedList = [...fileList, newFile];
@@ -402,6 +404,12 @@ function CreateAdvertising() {
                     </Box>
                     </CardContent>
                 </Card>
+            </Grid>
+        </Grid>
+        <Grid container>
+            <Grid xl={8}>
+                <Typography mb={3} color='primary' variant='h6'>Enter location for Advertising</Typography>
+                <SimpleMap />
             </Grid>
         </Grid>
         <Grid mt={3} container spacing={2}>

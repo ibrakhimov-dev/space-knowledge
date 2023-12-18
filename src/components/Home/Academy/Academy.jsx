@@ -48,8 +48,8 @@ function Academy() {
 
   const naigate = useNavigate();
 
-  function detail () {
-    naigate('/detail')
+  function detail (id) {
+    naigate(`/detail/10`)
   }
 
   return (
@@ -86,11 +86,11 @@ function Academy() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -219,7 +219,7 @@ function Academy() {
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
 
             </CardContent>
@@ -279,11 +279,11 @@ function Academy() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -412,7 +412,7 @@ function Academy() {
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
 
             </CardContent>
@@ -472,11 +472,11 @@ function Academy() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -605,7 +605,7 @@ function Academy() {
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
 
             </CardContent>

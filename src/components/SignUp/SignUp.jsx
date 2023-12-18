@@ -53,8 +53,8 @@ function SignUp() {
     formData.append('email', email);
     formData.append('fullname', fullName);
     formData.append('password', pass1);
-    formData.append('retryPassword', pass2);
-    formData.append('isSchoolAdmin', role === true ? "School" : "User");
+    formData.append('password_confirmation', pass2);
+    formData.append('user_role', role === true ? "school" : "user");
 
     function handleChecked () {
       if (role) {
@@ -68,13 +68,14 @@ function SignUp() {
       if (email !== "" && fullName !== "" && pass1 !== "" && pass2 !== "" && pass1 === pass2 && pass1.length >= 6 && email.includes('@')){
           axios.post(register_api_url(), formData, {headers})
           .then((res) => {
-           navigate("/verification", {state: {email: email}})
+            console.log(res.data)
+          //  navigate("/verification", {state: {email: email}})
           })
           .catch((err) =>{
             console.log(err);
-            if (err.response.data.error === 'User already exists'){
-              alert('User already exists')
-            }
+            // if (err.response.data.error === 'User already exists'){
+            //   alert('User already exists')
+            // }
           })
       } else {
           if (email === ""){

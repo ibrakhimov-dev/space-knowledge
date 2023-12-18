@@ -1,10 +1,10 @@
 import { Grid, Stack, Typography, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import academyLogo from '../Assets/img/academy-logo.png'
+import { NavLink, useNavigate } from 'react-router-dom'
 import SendOutlined from '@mui/icons-material/SendOutlined';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import TagIcon from '@mui/icons-material/Tag';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import FavoriteBorderIcon from '@mui/icons-material/Favorite';
 // 
 import { useTheme } from '@mui/material/styles';
@@ -38,11 +38,16 @@ const images = [
 
 function Like() {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
+
+  function detail () {
+    navigate('/detail')
+  }
   return (
     <Stack>
       <Grid container>
@@ -53,7 +58,7 @@ function Like() {
         </Grid>
       </Grid>
       <Grid container spacing={1}>
-        <Grid item mt={1} xl={4}>
+      <Grid item mt={1} xl={4}>
           <Card            
             variant="outlined"
             sx={{
@@ -77,11 +82,11 @@ function Like() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -112,8 +117,18 @@ function Like() {
                   ))}
                 </AutoPlaySwipeableViews>
               </Box>
-            </CardContent>        
-            <CardContent>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
               <Box>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
@@ -121,42 +136,88 @@ function Like() {
                   size="small"
                   aria-label="Region"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Toshkent Shaxri
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="City"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Shayxontohur tumani
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Phone"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  3-uy, Tashkent 100020
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Institution"
                 >
-                  <LocalPhoneIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  +998787774747
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
+
             </CardContent>
             <CardContent
               orientation="horizontal"
@@ -178,6 +239,7 @@ function Like() {
                   <FavoriteBorderIcon />
                 </IconButton>
                   <Button
+                    onClick={() => detail()}
                     sx={{ position: 'absolute', right: 22, top: 20 }}
                     variant="contained"
                     color="danger"
@@ -213,11 +275,11 @@ function Like() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -248,8 +310,18 @@ function Like() {
                   ))}
                 </AutoPlaySwipeableViews>
               </Box>
-            </CardContent>        
-            <CardContent>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
               <Box>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
@@ -257,42 +329,88 @@ function Like() {
                   size="small"
                   aria-label="Region"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Toshkent Shaxri
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="City"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Shayxontohur tumani
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Phone"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  3-uy, Tashkent 100020
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Institution"
                 >
-                  <LocalPhoneIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  +998787774747
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
+
             </CardContent>
             <CardContent
               orientation="horizontal"
@@ -314,6 +432,7 @@ function Like() {
                   <FavoriteBorderIcon />
                 </IconButton>
                   <Button
+                    onClick={() => detail()}
                     sx={{ position: 'absolute', right: 22, top: 20 }}
                     variant="contained"
                     color="danger"
@@ -349,11 +468,11 @@ function Like() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -384,8 +503,18 @@ function Like() {
                   ))}
                 </AutoPlaySwipeableViews>
               </Box>
-            </CardContent>        
-            <CardContent>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
               <Box>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
@@ -393,42 +522,88 @@ function Like() {
                   size="small"
                   aria-label="Region"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Toshkent Shaxri
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="City"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Shayxontohur tumani
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Phone"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  3-uy, Tashkent 100020
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Institution"
                 >
-                  <LocalPhoneIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  +998787774747
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
+
             </CardContent>
             <CardContent
               orientation="horizontal"
@@ -450,6 +625,7 @@ function Like() {
                   <FavoriteBorderIcon />
                 </IconButton>
                   <Button
+                    onClick={() => detail()}
                     sx={{ position: 'absolute', right: 22, top: 20 }}
                     variant="contained"
                     color="danger"
@@ -485,11 +661,11 @@ function Like() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -520,8 +696,18 @@ function Like() {
                   ))}
                 </AutoPlaySwipeableViews>
               </Box>
-            </CardContent>        
-            <CardContent>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
               <Box>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
@@ -529,42 +715,88 @@ function Like() {
                   size="small"
                   aria-label="Region"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Toshkent Shaxri
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="City"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Shayxontohur tumani
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Phone"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  3-uy, Tashkent 100020
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Institution"
                 >
-                  <LocalPhoneIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  +998787774747
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
+
             </CardContent>
             <CardContent
               orientation="horizontal"
@@ -586,6 +818,7 @@ function Like() {
                   <FavoriteBorderIcon />
                 </IconButton>
                   <Button
+                    onClick={() => detail()}
                     sx={{ position: 'absolute', right: 22, top: 20 }}
                     variant="contained"
                     color="danger"
@@ -621,11 +854,11 @@ function Like() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -656,8 +889,18 @@ function Like() {
                   ))}
                 </AutoPlaySwipeableViews>
               </Box>
-            </CardContent>        
-            <CardContent>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
               <Box>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
@@ -665,42 +908,88 @@ function Like() {
                   size="small"
                   aria-label="Region"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Toshkent Shaxri
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="City"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Shayxontohur tumani
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Phone"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  3-uy, Tashkent 100020
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Institution"
                 >
-                  <LocalPhoneIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  +998787774747
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
+
             </CardContent>
             <CardContent
               orientation="horizontal"
@@ -722,6 +1011,7 @@ function Like() {
                   <FavoriteBorderIcon />
                 </IconButton>
                   <Button
+                    onClick={() => detail()}
                     sx={{ position: 'absolute', right: 22, top: 20 }}
                     variant="contained"
                     color="danger"
@@ -757,11 +1047,11 @@ function Like() {
               >
                 <Avatar
                   size="small"
-                  src={academyLogo}
+                  src="https://picsum.photos/2000/2000"
                   sx={{ border: '2px solid', borderColor: '#BC002D' }}
                 />
                 <Typography variant="subtitle1" fontSize={14} fontWeight="bold">
-                  Pdp Academy
+                  Lorem, ipsum dolor.
                 </Typography>
               </Box>
             </CardContent>
@@ -792,8 +1082,18 @@ function Like() {
                   ))}
                 </AutoPlaySwipeableViews>
               </Box>
-            </CardContent>        
-            <CardContent>
+            </CardContent>   
+            <CardContent  sx={{marginTop: '-20px', display: 'flex', justifyContent: 'space-between'}}>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <AccessTimeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>13:48 22.11.2023</Typography>
+              </Stack>
+              <Stack mt={1} direction="row" alignItems="center" gap={1}>
+                <RemoveRedEyeIcon color='grey' fontSize='small' />        
+                <Typography variant='body2' color='grey'>123 views</Typography>
+              </Stack>
+            </CardContent>    
+            <CardContent sx={{marginTop: '-20px'}}>
               <Box>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
@@ -801,42 +1101,88 @@ function Like() {
                   size="small"
                   aria-label="Region"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Toshkent Shaxri
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="City"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
                   Shayxontohur tumani
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Phone"
                 >
-                  <LocationOnIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  3-uy, Tashkent 100020
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  +998787774747
                 </Fab>
                 <Fab
                   sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
                   variant="extended"
                   size="small"
-                  aria-label="Region"
+                  aria-label="Institution"
                 >
-                  <LocalPhoneIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
-                  +998787774747
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Training Center
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Direction"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  IT
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Subject"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  Frontend Developer
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Price"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  1000000 - 1500000 so'm
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  120 connections
+                </Fab>
+                <Fab
+                  sx={{ fontSize: '12px', mr: 1, mt: 1, textTransform: 'none' }}
+                  variant="extended"
+                  size="small"
+                  aria-label="Print"
+                >
+                  <TagIcon sx={{ mr: 1 }} color="danger" fontSize="small" />
+                  4.5 Rating
                 </Fab>
               </Box>
             </CardContent>
             <CardContent>
               <Typography variant='subtitle2'>
-                Dasturlashni qulay muhitda o'rganing.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus.
               </Typography>
+
             </CardContent>
             <CardContent
               orientation="horizontal"
@@ -858,6 +1204,7 @@ function Like() {
                   <FavoriteBorderIcon />
                 </IconButton>
                   <Button
+                    onClick={() => detail()}
                     sx={{ position: 'absolute', right: 22, top: 20 }}
                     variant="contained"
                     color="danger"
@@ -869,6 +1216,7 @@ function Like() {
             </CardContent>
           </Card>
         </Grid>
+        
       </Grid>
       <Grid container mt={2}>
         <Grid item xl={12} display='flex' justifyContent='center'>

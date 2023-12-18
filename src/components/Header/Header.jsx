@@ -8,6 +8,7 @@ import ContrastIcon from '@mui/icons-material/Contrast';
 import SearchIcon from '@mui/icons-material/Search';
 import LanguageIcon from '@mui/icons-material/Language';
 import logo from "../Assets/img/logo.svg";
+import vs from "../Assets/img/vs.webp"
 import CategoryIcon from '@mui/icons-material/Category';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
@@ -34,7 +35,7 @@ function Header() {
   };
 
   useEffect(() => {
-    setUserMenu(['Profile', 'Account', 'Submit An Application'])
+    setUserMenu(['User Profile', 'Account', 'Submit Application'])
     setTrainingCenterMenu(['Dashboard', 'My Advertising', 'Profile', "Create Advertising", 'Increase Efficiency', 'Log Out'])
   }, [])
 
@@ -59,8 +60,25 @@ function Header() {
     navigate(`/institution-admin/${newMenu}`)
   }
 
+  function userLink (menu) {
+    let newMenu = menu.toLowerCase().split(" ");
+    
+    if(newMenu.length > 1){
+      newMenu = newMenu[0] + "-" + newMenu[1];
+    }else {
+      newMenu = menu.toLowerCase();
+    }
+    console.log(newMenu);
+
+    navigate(`${newMenu}`)
+  }
+
   function search () {
     navigate("/search")
+  }
+
+  function versus () {
+    navigate("/versus")
   }
 
   function signIn () {
@@ -78,20 +96,21 @@ function Header() {
   return (
     <Stack>
         <Container>
-            <Grid container height={55} alignItems='center'>
-              <Grid item xl={2}>
+            <Grid container height={{xl: 55, md: 55, sm: 90, xs: 90}} alignItems='center'>
+              <Grid item xl={2}  order={{xl: 1, md: 1, sm: 1, xs: 1}} md={2} sm={4} xs={4}>
                 <NavLink style={navLinkStyle}><span style={{color: "#BC002D"}}>JDU</span> System</NavLink>
               </Grid>
-              <Grid item xl={7}>
+              <Grid item textAlign={{xl: 'left', md: 'center', sm: 'center', xs: 'center'}} xl={7} md={7} sm={12} xs={12} order={{xl: 1, md: 1, sm: 3, xs: 3}}>
                 <Typography variant='subtitle2'>Bizning foydalanuvchilarimiz 999999 ga yetdi.</Typography>
               </Grid>
-              <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+              <Grid item xl={3} md={3} sm={8} xs={8} order={{xl: 1, md: 1, sm: 2, xs: 2}} display='flex' justifyContent={{xl: 'space-between', md: 'space-between', sm: 'flex-end', xs: 'flex-end'}} alignItems='center'>
                 <NavLink style={navLinkStyle}>Doc</NavLink>
                 <IconButton aria-label="contrast" color='primary'>
                   <ContrastIcon />
                 </IconButton>
                 <FormControl sx={{minWidth: 150 }} size="small">
                   <Select
+
                     defaultValue='English'
                     id="demo-select-small"
                     color='primary'
@@ -99,7 +118,7 @@ function Header() {
                     onChange={handleChange}
                     renderValue={(value) => {
                       return (
-                        <Box sx={{ display: "flex", gap: 1 }}>
+                        <Box sx={{ display: "flex", gap: 1, fontSize: '14px' }}>
                           <SvgIcon color="primary">
                             <LanguageIcon />
                           </SvgIcon>
@@ -115,19 +134,19 @@ function Header() {
                 </FormControl>
               </Grid>
             </Grid>
-            <Grid container spacing={1} height={90} alignItems='center'>
-              <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+            <Grid container spacing={1} height={{xl: 90, md: 90, sm: 'auto', xs: 'auto'}} alignItems='center'>
+              <Grid item xl={2} md={2} sm={3} xs={5} order={{xl: 1, md: 1, sm: 1, xs: 1}} display='flex' justifyContent='space-between' alignItems='center'>
                 <Link to='home'>
                     <img src={logo} width={150} alt="Space os Knowledge" />
                 </Link>
-                <Button onClick={openCategory} size='large' sx={{height: 44}} variant="outlined" color='danger' startIcon={<CategoryIcon />}>
-                  Category
-                </Button>
               </Grid>
-              <Grid item xl={6}>
+              <Grid item xl={7} md={7} sm={12} xs={12} order={{xl: 2, md: 2, sm: 3, xs: 3}} display='flex' justifyContent='space-between' alignItems='center' >
+              <Button onClick={openCategory} size='large' sx={{height: 44}} variant="outlined" color='danger' startIcon={<CategoryIcon />}>
+                  Category
+              </Button>
               <Paper
                   component="form"
-                  sx={{display: 'flex', alignItems: 'center', width: '100%' }}
+                  sx={{display: 'flex', alignItems: 'center', width: '75%' }}
                 >
                   <InputBase
                     sx={{ ml: 1, flex: 1 }}
@@ -138,7 +157,20 @@ function Header() {
                   </IconButton>
                 </Paper>
               </Grid>
-              <Grid item xl={3} display='flex' justifyContent='space-between' alignItems='center'>
+              <Grid item xl={3} gap={1} md={3} sm={9} xs={7} order={{xl: 3, md: 3, sm: 2, xs: 2}} display='flex' justifyContent={{xl: 'space-between', md: 'space-between', sm: 'flex-end', xs: 'flex-end'}} alignItems='center'>
+                <Box order={{xl: 2, md: 2, sm: 2, xs: 2}}>
+                  <IconButton aria-label="contrast" onClick={like} color='danger'>
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                </Box>
+                <Box order={{xl: 3, md: 3, sm: 3, xs: 3}}>
+                  <Avatar
+                  alt="vs"
+                  onClick={versus}
+                  src="https://www.freepnglogos.com/uploads/vs-png/vs-icon-black-download-5.png"
+                  sx={{  cursor: 'pointer' }}
+                  />
+                </Box>
                 {
                   role === null ? <>
                     <Button size='large' onClick={signIn} sx={{height: 44}} variant="contained" color='danger'>
@@ -147,12 +179,12 @@ function Header() {
                   <Button size='large' onClick={signUp} sx={{height: 44}} variant="contained" color='primary'>
                     Sign Up
                   </Button>
-                  </> : <Box sx={{ flexGrow: 0, width: '220px' }}>
-                    <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-start'>
+                  </> : <Box order={{xl: 1, md: 1, sm: 1, xs: 1}} sx={{ flexGrow: 0, width: '220px' }}>
+                    <Stack width='100%' flexDirection='row' gap={1} alignItems='center' display='flex' justifyContent='flex-end'>
+                      <Typography variant="" fontWeight='bold' fontSize={16}>Full Name</Typography>
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />  
                       </IconButton>
-                      <Typography variant="" fontWeight='bold' fontSize={16}>Full Name</Typography>
                     </Stack>
                     {
                       role === 1 ?
@@ -176,7 +208,7 @@ function Header() {
                           userMenu.map((item, index) => {
                             return (
                               <MenuItem key={index + 1}>
-                                <Typography textAlign="center">{item}</Typography>
+                                <Typography onClick={() => userLink(item)} textAlign="center">{item}</Typography>
                               </MenuItem>
                             )
                           })
@@ -211,9 +243,7 @@ function Header() {
                     }
                   </Box>
                 }
-                <IconButton aria-label="contrast" onClick={like} color='danger'>
-                  <FavoriteBorderIcon />
-                </IconButton>
+                
               </Grid>
             </Grid>
             <Box sx={{position: 'relative'}}>
@@ -222,8 +252,8 @@ function Header() {
               </Stack>
             </Box>
             <Outlet/>
-            <Footer />
         </Container>
+          <Footer />
     </Stack>
   )
 }

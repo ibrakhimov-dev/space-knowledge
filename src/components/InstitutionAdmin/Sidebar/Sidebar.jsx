@@ -110,8 +110,9 @@ function Sidebar() {
           component="h1"
           variant="h6"
           color="inherit"
+          onClick={() => navigate('/home')}
           noWrap
-          sx={{ flexGrow: 1 }}
+          sx={{ flexGrow: 1, cursor: 'pointer' }}
         >
           Space of Knowledge
         </Typography>
@@ -121,7 +122,7 @@ function Sidebar() {
         <Button size='large' onClick={signUp} sx={{height: 44}} color='grey' variant='outlined'>
             Sign Up
         </Button>
-        <IconButton color="inherit">
+        <IconButton color="inherit" onClick={() => navigate("/institution-admin/profile")}>
           <Avatar
           src='https://api.rank.uz/storage/6222e08fe5074-1646452879.png' />
         </IconButton>

@@ -14,7 +14,7 @@ function Banner() {
         </Grid>
       </Grid>
       <Grid container spacing={2} my={2}>
-        <Grid item xl={3}>
+        <Grid item xl={3} md={4} sm={6} xs={12}>
           <Card
           variant="outlined"
           sx={{
@@ -37,7 +37,7 @@ function Banner() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xl={3}>
+        <Grid item xl={3} md={4} sm={6} xs={12}>
           <Card
           variant="outlined"
           sx={{
@@ -60,7 +60,7 @@ function Banner() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xl={3}>
+        <Grid item xl={3} md={4} sm={6} xs={12}>
           <Card
           variant="outlined"
           sx={{
@@ -83,7 +83,7 @@ function Banner() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xl={3}>
+        <Grid item xl={3} md={4} sm={6} xs={12}>
           <Card
           variant="outlined"
           sx={{

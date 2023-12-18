@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Slider, Pagination, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
+import { Grid, Stack, FormControl, Radio, FormControlLabel, FormLabel, RadioGroup, Typography, Slider, Pagination, Card, CardContent, Avatar, Box, Fab, Button, IconButton } from '@mui/material'
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import academyLogo from '../Assets/img/academy-logo.png'
@@ -125,6 +125,22 @@ function Search() {
                             <Typography variant='subtitle2'>{value[0]*100000} so'm</Typography>
                             <Typography variant='subtitle2'>{value[1]*100000} so'm</Typography>
                         </Box>
+                    </Grid>
+                </Grid>
+                <Grid container mt={2}>
+                    <Grid item xl={12}>
+                        <FormControl>
+                        <Typography my={2} variant='subtitle1' fontWeight='bold'>Masofa:</Typography>
+                            <RadioGroup
+                                row
+                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                name="row-radio-buttons-group"
+                            >
+                                <FormControlLabel value="1" control={<Radio />} label="1-km" />
+                                <FormControlLabel value="5" control={<Radio />} label="5-km" />
+                                <FormControlLabel value="10" control={<Radio />} label="10-km" />
+                            </RadioGroup>
+                            </FormControl>
                     </Grid>
                 </Grid>
                 <Typography mt={2} variant='subtitle1' fontWeight='bold'>Region:</Typography>
